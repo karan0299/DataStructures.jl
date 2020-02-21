@@ -235,3 +235,15 @@ function Base.intersect!(a::Accumulator, b::Accumulator)
     end
     return a
 end
+
+function Base.show(io::IO,acc::Accumulator)
+    print("Accumulator(Dict(")
+    l = length(m)
+    for (count,(k,v)) in enumerate(m)
+        print(io, k, " => ", v)
+        if count < l
+            print(io, ", ")
+        end
+    end
+    print(io, "))")
+end
